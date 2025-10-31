@@ -1,0 +1,17 @@
+@import "tailwindcss";
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+.shadow-nice {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.shadow-hover {
+  transition: box-shadow 0.2s;
+}
+
+.shadow-hover:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
