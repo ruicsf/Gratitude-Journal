@@ -87,28 +87,13 @@ export function EntryList({setContent, setEditingId}: textAreaProps) {
   });
 
   const formatDate = (date: Date) => {
-    const now = new Date();
-    const diffInMs = now.getTime() - date.getTime();
-    const diffInHours = diffInMs / (1000 * 60 * 60);
-
-    if (diffInHours < 24) {
-      return new Intl.DateTimeFormat('en-US', {
-        hour: 'numeric',
-        minute: 'numeric',
-      }).format(date);
-    } else if (diffInHours < 168) {
-      return new Intl.DateTimeFormat('en-US', {
-        weekday: 'short',
-        hour: 'numeric',
-        minute: 'numeric',
-      }).format(date);
-    } else {
-      return new Intl.DateTimeFormat('en-US', {
-        month: 'short',
-        day: 'numeric',
-        year: date.getFullYear() !== now.getFullYear() ? 'numeric' : undefined,
-      }).format(date);
-    }
+    return date.toLocaleString('en-US', {
+      month: 'short',
+      day: 'numeric',
+      year: 'numeric',
+      hour: 'numeric',
+      minute: 'numeric',
+    });
   };
 
   if (loading) {
